@@ -554,3 +554,13 @@ uint16_t TFT_22_ILI9225::drawChar(uint16_t x, uint16_t y, uint16_t ch, uint16_t 
 	return charWidth;
 }
 
+void TFT_22_ILI9225::drawVerticalGrayLine (uint8_t line, uint8_t * data)
+{
+	_setWindow(0, line, _maxX, line+1);
+	 
+	for (uint8_t i = 0; i < _maxX; i++)
+	{
+		uint16_t color = ((((data[i]) >> 3) & 0x1f) << 11) | ((((data[i]) >> 2) & 0x3f) << 5) | (((data[i]) >> 3) & 0x1f);
+		_writeData(color >> 8, color);
+	}
+}

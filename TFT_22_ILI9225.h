@@ -270,6 +270,8 @@ class TFT_22_ILI9225 {
 		/// @param	color 16-bit color, default=white
 		uint16_t drawChar(uint16_t x, uint16_t y, uint16_t ch, uint16_t color = COLOR_WHITE);
 
+		void drawVerticalGrayLine (uint8_t line, uint8_t * data);
+
 	private:
 
 		void	 _swap(uint16_t &a, uint16_t &b),
